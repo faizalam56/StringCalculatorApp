@@ -1,8 +1,9 @@
 package com.intuit.stringcalculatorapp
 
+
 class StringCalculator {
 
-    fun isValidInput(text: String): Boolean {
+    fun isValidInput(text: String):Boolean{
         var text = text
         return if (text == "") {
             false
@@ -13,7 +14,7 @@ class StringCalculator {
                 text = text.substring(4)
             }
             val numList = splitNumbers(text, "$delimiter|\n")
-            return true
+           return true
         }
     }
 
@@ -32,7 +33,7 @@ class StringCalculator {
         }
     }
 
-    private fun toInt(number: String): Int {
+    private fun toIntCast(number: String): Int {
         return number.toInt()
     }
 
@@ -44,10 +45,10 @@ class StringCalculator {
         var total = 0
         var negString = ""
         for (number in numbers) {
-            if (toInt(number) < 0) {
+            if (toIntCast(number) < 0) {
                 if (negString == "") negString = number else negString += ",$number"
             }
-            if (toInt(number) < 1000) total += toInt(number)
+            if (toIntCast(number) < 1000) total += toIntCast(number)
         }
         require(negString == "") { "Negatives not allowed: $negString" }
         return total

@@ -12,7 +12,8 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
         mBinding.btnAdd.setOnClickListener {
-            addValue()
+            //addValue()
+            addNewValue()
         }
     }
 
@@ -27,6 +28,14 @@ class MainActivity : AppCompatActivity() {
             }else{
                 Toast.makeText(this,"Please enter valid data",Toast.LENGTH_LONG).show()
             }
+        }else Toast.makeText(this,"Please enter value",Toast.LENGTH_LONG).show()
+    }
+
+    private fun addNewValue(){
+        val value = mBinding.etValue.text.toString()
+        if (value.isNotEmpty()){
+            mBinding.tvResult.text = CalculatorString.add(value).toString()
+
         }else Toast.makeText(this,"Please enter value",Toast.LENGTH_LONG).show()
     }
 }
