@@ -23,4 +23,14 @@ class CalculatorStringTest : TestCase() {
         assertEquals(3, CalculatorString.add("1,2"))
     }
 
+    @Test
+    fun testThreeNumbers() {
+        assertEquals(6, CalculatorString.add("1,2,3"))
+    }
+
+    @Test
+    fun testNewLine() {
+        assertEquals(6, CalculatorString.add("1\n2,3"))
+    }
+
 }
